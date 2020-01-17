@@ -1,1 +1,15 @@
 ﻿Note: Ideas and information related to databases should be added here.
+
+When to use What....
+1)Nosql: For systems where search result has to be displayed can use NOSQL as they can process huge amount of data quickly using scale of servers and data distribution.(searching and while recommending)
+2)Sql: But where you need ACID(Atomicity,Consistency,Isolation,Durability) properties and transactions, you will use a RDBMS like SQL server.
+3)Sql: order processing systems are built using typical RDBMSes (SQL or MySQL), which includes transaction part as well.(purchasing products)
+4)NoSql: Then product-related data, like details and variants, are stored in a NoSQL database like LevelDB, MongoDB, etc. (NoSQL).
+5)NoSql: Static pages serving or caching of above mentioned data can be done with a layer of Memcached or Redis (in-memory NoSQL).
+6)NoSql: Click stream (which user clicked on which image, etc.) can be stored in HBase or a NoSQL database like MongoDB, Riak or RocksDB (NoSQL).
+Flipkart Data Platform
+
+Reference: https://tech.flipkart.com/overview-of-flipkart-data-platform-20c6d3e9a196
+please go through the above link.
+
+
