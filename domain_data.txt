@@ -1,0 +1,98 @@
+Introduction
+    Crime event prediction is important to crime prevention in the society by helping the law enforcement
+agencies to design optimal patrol strategies.Reduction of crime events will benefit society in numerous ways.
+It will increase the public safety and decrease the economic loss.However, crime event prediction is a challenging
+task.Many factors are relevant to the possibility that a particular type of crime event is going to occur in a region
+in the near future. These include demographics,the distribution of different types of services, crime history,
+human mobility and so on.
+
+The criminal offence which includes the illegal taking of other persons belonging without consent to permanently or
+temporarily deprive the owner is defined as Theft.
+
+When a person enters a building (e.g. office, bank, shop etc.) with an intention to commit crime can be classified
+as Unlawful Entry.
+
+Drug Offence includes any form of sale, dealing, importing or exporting, manufacture or cultivation of illegal
+drugs or other substances.
+
+The offences which are related to most forms of road traffic, including pertaining to the licensing, registration,
+road worthiness or use of vehicles, bicycle offences, and pedestrian offences can be classified as Traffic Related
+Offence.
+
+Fraud is a type of behavior towards a person or organization which is deceptive, dishonest, corrupt or unethical.
+
+All types of physical and mental harm towards a person are defined as Assault. This includes all types of physical
+contact with a person without their consent.
+
+short-term crime event prediction we partition a day into total eight intervals and each interval spans 3 hours.
+Crime prediction in finer temporal grain will help the police to design their patrol strategy dynamically and it
+will increase the probability to reduce crime rate more effectively.
+
+Features are categorised as follows:
+Historical: They describe the density and trend of crime event in a region and the surrounding regions.
+
+Demographic: The demographic features reflect the socio-economic conditions of residents in a region.
+
+Geographic: The geographic features retain the information about the properties of venues in a region.
+
+Dynamic: According to routine activity theory, the opportunities for crime events are optimized in places
+         where victims and offenders come together in greater concentrations.
+
+Crime event prediction using HISTORICAL information:
+
+Traditional methods for crime event prediction assume that crime events are most likely to happen in the
+vicinity of past crime events.
+
+They focus on Burglary prediction. The city is divided using a grid. For each grid cell, the number of
+Burglary in the past is counted by month. They run several classifiers including 1NN, J48, SVM, Neural Network
+and Naive Bayes to predict the possibility of Burglary in the next month for each grid cell based on the crime
+historical data in this cell and neighboring cells. It shows J48, SVM, Neural Network always outperform the others
+and Neural Network often performs better than J48 and SVM. But this model solely depends on the past history of crime
+events in the vicinity.
+
+The authors use the theory of self-exciting point process (SEPP) method in crime prediction particularly in
+residential burglary prediction. SEPP is a popular approach for modeling space-time clustering of seismic activity.
+They demonstrate that a better prediction performance can be achieved using this model. Commercial software for
+crime prediction like PredPolFootnote 2 uses SEPP as an underlying algorithm. This tool predicts crime based on the
+location and time of past crime event data.
+
+Crime event prediction using GEOGRAPHIC and DEMOGRAPHIC information:
+
+a General Additive Model (GAM) is used to predict the locations of future crime events with temporal information.
+It considers three data sets. The first is the demographic data of the city measured in a census block group
+including population, median values of all houses, races, marriages and so on. The second is the geographical
+information of the city such as locations of roads, interstate highways, small businesses and schools. The third
+is the crime data set. To build the crime prediction model, the city is partitioned using a grid. For each grid in
+a month, the predictor includes the shortest distances between the centroid of the grid and geographic landmarks
+(such as the distance to the nearest roads), the census information extracted from demographic data, and the
+temporal information (i.e. the number of months from the last occurrence of crime event).
+
+Some crime prediction tool e.g, Hunchlab considers other information with historic information.It takes account
+wider range of variables with near-repeat victimization. The variables include seasonality, social and environmental
+risk factors.
+
+Crime event prediction using social media
+
+The above studies explore the geographic and demographic information observed over a long time period i.e. months.
+Some researchers further embedded the features extracted from social media data like Twitter in their prediction
+model. In [4], the probability of a certain type of crime event at a given location in a city is predicted by
+considering information in the surrounding regions from two aspects: the density of crime events of the same type
+and the topics of tweets in the surrounding regions. The density of crimes is evaluated using
+Kernel Density Estimation(KDE). The topics of the tweets in surrounding regions are modeled using
+Latent Dirichlet Allocation (LDA). Using the density as one feature and each topic as a separate feature,
+a logit model is trained.
+
+Neighborhood crime event density
+
+The crime rate in one region can be influenced by the crime rate of its neighborhood regions.
+The neighborhood crime event density reflects the situation of surrounding regions.
+
+Seasonal crime event density
+
+Previously, seasonal patterns have been observed in some crime types e.g., Assault.
+Inspiring from this we calculate seasonal crime event density for each type of crime event.
+The season of the current date is considered. For region r in time interval Δtnext,
+the crime event density of the same season is computed and divided by the number of days of the season,
+i.e., the average number of crime events per day in this season is used as the seasonal crime event density.
+
+REFERENCE: https://epjdatascience.springeropen.com/articles/10.1140/epjds/s13688-018-0171-7
